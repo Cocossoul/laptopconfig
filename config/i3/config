@@ -201,12 +201,14 @@ mode "Shortcuts " {
         bindsym s workspace $ws10; exec "google-chrome-stable --app='https://open.spotify.com/'"
         bindsym d workspace $ws3; exec "google-chrome-stable --app='https://discord.com/app'"
         bindsym n exec "networkmanager_dmenu"
-        bindsym f exec "dolphin"
+        bindsym f exec "thunar"
         bindsym p exec "google-chrome-stable -incognito"
         bindsym i exec "google-chrome-stable"
         bindsym o exec "firefox"
         bindsym t workspace $ws4; exec "thunderbird"
         bindsym w exec feh --bg-scale --randomize /home/coco/Documents/Wallpapers
+
+	bindsym Shift+h exec "systemctl hibernate"
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"

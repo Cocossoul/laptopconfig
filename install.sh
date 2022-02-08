@@ -31,9 +31,9 @@ redshift -O 3500
 
 # i3 tiiiime!
 sudo pacman -S i3-gaps polybar dmenu i3lock feh
-cp config/polybar ~/.config/
-cp config/i3 ~/.config
-cp config/picom.conf ~/.config
+ln -s "$(pwd)/config/polybar" "~/.config/"
+ln -s "$(pwd)/config/i3" "~/.config"
+ln -s "$(pwd)/config/picom.conf" "~/.config/"
 
 # reload i3 config with $mod4+Shift+r
 
@@ -51,5 +51,18 @@ git config --global user.name "Corentin Pape"
 # vscode
 sudo pamac build visual-studio-code-bin
 
+# Alacritty
+sudo pacman -S alacritty
+# Add to zshrc:
+export TERMINAL="$(which alacritty)"
+export EDITOR="$(which vim)"
+
+# Change terminal and editor in profile
+sudo ln -s "$(pwd)/config/coco_profile.sh" "/etc/profile.d/coco_profile.sh"
+
 # TODO: configure vim
+
+# TODO: zsh
+sudo pacman -S zsh
+chsh -s "$(which zsh)"
 
