@@ -30,19 +30,18 @@ sudo pacman -S redshift
 redshift -O 3500
 
 # i3 tiiiime!
-sudo pacman -S i3-gaps polybar dmenu i3lock feh
-ln -s "$(pwd)/config/polybar" "~/.config/"
-ln -s "$(pwd)/config/i3" "~/.config"
-ln -s "$(pwd)/config/picom.conf" "~/.config/"
+sudo pacman -S i3-gaps polybar dmenu i3lock feh picom maim xclip
+ln -s "$(pwd)/config/polybar" ~/.config/
+ln -s "$(pwd)/config/i3" ~/.config
+ln -s "$(pwd)/config/picom.conf" ~/.config/
 
 # reload i3 config with $mod4+Shift+r
 
 # Change luminosity
 # Straightforward way:
 # sudo vim /sys/class/backlight/intel_backlight/brightness
-sudo pacman -S xorg-xrandr xorg-xbacklight
+sudo pacman -S xorg-xrandr xorg-xbacklight light
 sudo usermod -a -G video coco
-# TODO: make it work
 
 # git config
 git config --global user.email "corentin.pape@epita.fr"
@@ -53,16 +52,41 @@ sudo pamac build visual-studio-code-bin
 
 # Alacritty
 sudo pacman -S alacritty
+ln -s "$(pwd)/config/alacritty" ~/.config/alacritty
 # Add to zshrc:
 export TERMINAL="$(which alacritty)"
 export EDITOR="$(which vim)"
 
 # Change terminal and editor in profile
-sudo ln -s "$(pwd)/config/coco_profile.sh" "/etc/profile.d/coco_profile.sh"
+sudo ln -s "$(pwd)/config/coco_profile.sh" /etc/profile.d/coco_profile.sh
 
 # TODO: configure vim
 
-# TODO: zsh
+# zsh
 sudo pacman -S zsh
 chsh -s "$(which zsh)"
+# Install ohmyzsh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+cp fonts ~/.local/share/
+# z plugin
+git clone https://github.com/agkozak/zsh-z $ZSH_CUSTOM/plugins/zsh-z
+# p10k
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+sudo pamac build nerd-fonts-complete
+# ZSH_THEME="powerlevel10k/powerlevel10k" in .zshrc
+p10k configure
+# custom config
+ln -s "$(pwd)/config/custom_zsh" ~/.oh-my-zsh/custom/plugins/
+
+
+
+# Change wallpapers
+ln -s "$(pwd)/Wallpapers" ~/Documents/
+
+# Change clock
+sudo pacman -S ntp
+systemctl enable ntpd
+systemctl start ntpd
+# If still wrong, try
+# sudo ntpd -qg
 

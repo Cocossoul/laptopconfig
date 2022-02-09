@@ -32,7 +32,7 @@ bindsym $mod+Shift+i exec "i3lock -i ~/Documents/Lockscreen/lockwallpaper.png"
 # exec --no-startup-id nm-applet
 
 # i3 gaps config
-#hide_edge_borders both
+hide_edge_borders both
 for_window [class=".*"] border pixel 0
 gaps inner 15
 gaps outer 1
@@ -208,7 +208,8 @@ mode "Shortcuts " {
         bindsym t workspace $ws4; exec "thunderbird"
         bindsym w exec feh --bg-scale --randomize /home/coco/Documents/Wallpapers
 
-	bindsym Shift+h exec "systemctl hibernate"
+	bindsym Shift+h exec "sh -c 'i3-msg \"mode default\" && systemctl hibernate'"
+	bindsym Shift+s exec "shutdown now"
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -216,7 +217,7 @@ mode "Shortcuts " {
 }
 
 bindsym $mod+Shift+d mode "Shortcuts "
-bindsym $mod+Shift+Print --release exec --no-startup-id "maim -s -u | xclip -selection clipboard -t image/png -i"
+bindsym $mod+Shift+p --release exec --no-startup-id "maim -s -u | xclip -selection clipboard -t image/png -i"
 
 exec --no-startup-id "redshift -l 48.856613:2.352222"
 exec --no-startup-id "picom --config ~/.config/picom.conf"
