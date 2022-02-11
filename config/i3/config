@@ -198,8 +198,8 @@ bindsym $mod+r mode "resize"
 # Mode Quick Startup
 
 mode "Shortcuts " {
-        bindsym s workspace $ws10; exec "google-chrome-stable --app='https://open.spotify.com/'"
-        bindsym d workspace $ws3; exec "google-chrome-stable --app='https://discord.com/app'"
+        bindsym s exec "google-chrome-stable --app='https://open.spotify.com/'"
+        bindsym d exec "google-chrome-stable 'https://discord.com/app' 'https://app.slack.com/client/'"
         bindsym n exec "networkmanager_dmenu"
         bindsym f exec "thunar"
         bindsym p exec "google-chrome-stable -incognito"
@@ -208,7 +208,7 @@ mode "Shortcuts " {
         bindsym t workspace $ws4; exec "thunderbird"
         bindsym w exec feh --bg-scale --randomize /home/coco/Documents/Wallpapers
 
-	bindsym Shift+h exec "sh -c 'i3-msg \"mode default\" && systemctl hibernate'"
+	bindsym Shift+h mode default; exec "systemctl hibernate"
 	bindsym Shift+s exec "shutdown now"
 
         # back to normal: Enter or Escape

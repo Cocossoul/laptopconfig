@@ -76,7 +76,7 @@ sudo pamac build nerd-fonts-complete
 # ZSH_THEME="powerlevel10k/powerlevel10k" in .zshrc
 p10k configure
 # custom config
-ln -s "$(pwd)/config/custom_zsh" ~/.oh-my-zsh/custom/plugins/
+ln -s "$(pwd)/config/custom_zsh.sh" ~/.oh-my-zsh/custom/
 
 
 
