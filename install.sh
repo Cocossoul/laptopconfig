@@ -9,7 +9,9 @@ sudo pacman -Syyu
 # Readding mirrors sudo pacman-mirrors --continent
 
 # Vim as fast as we can
-sudo pacman -S vim
+sudo pacman -S neovim
+ln -s "$(pwd)/config/nvim" ~/.config
+# Install vim-plug
 
 # Install google-chrome
 sudo pamac build google-chrome
@@ -31,15 +33,15 @@ redshift -O 3500
 
 # i3 tiiiime!
 sudo pacman -S i3-gaps polybar dmenu i3lock feh picom maim xclip
-ln -s "$(pwd)/config/polybar" ~/.config/
+ln -s "$(pwd)/config/polybar" ~/.config
 ln -s "$(pwd)/config/i3" ~/.config
-ln -s "$(pwd)/config/picom.conf" ~/.config/
+ln -s "$(pwd)/config/picom.conf" ~/.config
 
 # reload i3 config with $mod4+Shift+r
 
 # Change luminosity
 # Straightforward way:
-# sudo vim /sys/class/backlight/intel_backlight/brightness
+# sudo nvim /sys/class/backlight/intel_backlight/brightness
 sudo pacman -S xorg-xrandr xorg-xbacklight light
 sudo usermod -a -G video coco
 
@@ -55,12 +57,12 @@ sudo pacman -S alacritty
 ln -s "$(pwd)/config/alacritty" ~/.config/alacritty
 # Add to zshrc:
 export TERMINAL="$(which alacritty)"
-export EDITOR="$(which vim)"
+export EDITOR="$(which nvim)"
 
 # Change terminal and editor in profile
 sudo ln -s "$(pwd)/config/coco_profile.sh" /etc/profile.d/coco_profile.sh
 
-# TODO: configure vim
+# TODO: configure neovim
 
 # zsh
 sudo pacman -S zsh
@@ -76,12 +78,12 @@ sudo pamac build nerd-fonts-complete
 # ZSH_THEME="powerlevel10k/powerlevel10k" in .zshrc
 p10k configure
 # custom config
-ln -s "$(pwd)/config/custom_zsh.sh" ~/.oh-my-zsh/custom/
+ln -s "$(pwd)/config/custom_zsh.sh" ~/.oh-my-zsh/custom
 
 
 
 # Change wallpapers
-ln -s "$(pwd)/Wallpapers" ~/Documents/
+ln -s "$(pwd)/Wallpapers" ~/Documents
 
 # Change clock
 sudo pacman -S ntp
