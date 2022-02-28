@@ -92,3 +92,6 @@ systemctl start ntpd
 # If still wrong, try
 # sudo ntpd -qg
 
+# pdf viewer
+sudo pacman -S mupdf
+xdg-mime default mupdf.desktop application/pdf

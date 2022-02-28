@@ -7,6 +7,7 @@ Plug 'vim-airline/vim-airline' |
             \ Plug 'vim-airline/vim-airline-themes'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'joshdick/onedark.vim'
+Plug 'paulondc/vim-nerdtree-open-externally'
 call plug#end()
 
 syntax on
