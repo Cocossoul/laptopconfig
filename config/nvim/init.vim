@@ -6,8 +6,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline' |
             \ Plug 'vim-airline/vim-airline-themes'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'joshdick/onedark.vim'
 call plug#end()
 
+syntax on
 set cc=80
 let g:NERDTreeGitStatusUseNerdFonts = 1
 let g:NERDTreeGitStatusConcealBrackets = 1
@@ -15,8 +17,10 @@ let g:NERDTreeGitStatusConcealBrackets = 1
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 lua require'lspconfig'.clangd.setup{}
-let g:airline_theme='simple'
+colorscheme onedark
+let g:airline_theme='transparent'
 set tabstop     =4
 set softtabstop =4
 set shiftwidth  =4
 set expandtab
+set termguicolors
