@@ -12,6 +12,7 @@ sudo pacman -Syyu
 sudo pacman -S neovim
 ln -s "$(pwd)/config/nvim" ~/.config
 # Install vim-plug
+sudo pacman -S fzf # For fuzzy finding
 
 # Install google-chrome
 sudo pamac build google-chrome
@@ -93,5 +94,5 @@ systemctl start ntpd
 # sudo ntpd -qg
 
 # pdf viewer
-sudo pacman -S mupdf
-xdg-mime default mupdf.desktop application/pdf
+sudo pacman -S okular
+xdg-mime default okularApplication_pdf.desktop application/pdf
