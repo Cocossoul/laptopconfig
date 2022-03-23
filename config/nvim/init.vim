@@ -8,10 +8,17 @@ Plug 'vim-airline/vim-airline' |
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'joshdick/onedark.vim'
 Plug 'paulondc/vim-nerdtree-open-externally'
+Plug 'airblade/vim-gitgutter'
+Plug 'preservim/tagbar'
+Plug 'ibhagwan/fzf-lua'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'xolox/vim-easytags'
+Plug 'xolox/vim-misc'
 call plug#end()
 
 syntax on
 set cc=80
+let NERDTreeMinimalUI=1
 let g:NERDTreeGitStatusUseNerdFonts = 1
 let g:NERDTreeGitStatusConcealBrackets = 1
 " Start NERDTree when Vim is started without file arguments.
@@ -25,3 +32,4 @@ set softtabstop =4
 set shiftwidth  =4
 set expandtab
 set termguicolors
+nmap <C-F> :FzfLua 
