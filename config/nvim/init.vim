@@ -14,6 +14,8 @@ Plug 'ibhagwan/fzf-lua'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'xolox/vim-easytags'
 Plug 'xolox/vim-misc'
+Plug 'chipsenkbeil/distant'
+Plug 'folke/trouble.nvim'
 call plug#end()
 
 syntax on
@@ -25,6 +27,7 @@ let g:NERDTreeGitStatusConcealBrackets = 1
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 lua require'lspconfig'.clangd.setup{}
+lua require'trouble'.setup{}
 colorscheme onedark
 let g:airline_theme='transparent'
 set tabstop     =4
@@ -33,3 +36,10 @@ set shiftwidth  =4
 set expandtab
 set termguicolors
 nmap <C-F> :FzfLua 
+nmap <C-N> :NERDTreeToggle<CR>
+nmap <C-G> :!clang-format -i %<CR><CR>
+au BufRead,BufNewFile *.pro set filetype=prolog
+autocmd BufWinEnter,WinEnter term://* startinsert
+autocmd BufWinEnter,WinEnter term://* set mouse=a
+autocmd BufLeave term://* stopinsert
+autocmd BufLeave term://* set mouse=

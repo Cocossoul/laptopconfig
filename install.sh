@@ -33,7 +33,7 @@ sudo pacman -S redshift
 redshift -O 3500
 
 # i3 tiiiime!
-sudo pacman -S i3-gaps polybar dmenu i3lock feh picom maim xclip
+sudo pacman -S i3-gaps polybar dmenu i3lock feh picom maim xclip dunst
 ln -s "$(pwd)/config/polybar" ~/.config
 ln -s "$(pwd)/config/i3" ~/.config
 ln -s "$(pwd)/config/picom.conf" ~/.config

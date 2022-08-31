@@ -25,6 +25,7 @@ font pango:monospace 8
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id dunst
 bindsym $mod+Shift+i exec "/home/coco/Documents/laptopconfig/scripts/i3_blur.sh"
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
@@ -195,26 +196,31 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+bindsym $mod+Shift+b exec "kill -9 $(pidof picom); sleep 5; picom --config ~/.config/picom.conf"
+
 # Mode Quick Startup
 
 mode "Shortcuts " {
-        bindsym s exec "google-chrome-stable --app='https://open.spotify.com/'"
-        bindsym d exec "google-chrome-stable 'https://discord.com/app' 'https://app.slack.com/client/'"
-        bindsym n exec "networkmanager_dmenu"
-        bindsym f exec "thunar"
-	bindsym g exec "python3 /home/coco/Documents/ImprovIT/cloud_gaming/client.py 'amqps://pjpoyllv:fq66GM5CqeyvQB4spVok6U8DxmWeb9zi@rat.rmq2.cloudamqp.com/pjpoyllv' && parsecd"
-        bindsym p exec "google-chrome-stable -incognito"
-        bindsym i exec "google-chrome-stable"
-        bindsym o exec "firefox"
-        bindsym t workspace $ws4; exec "thunderbird"
-        bindsym w exec feh --bg-scale --randomize /home/coco/Documents/Wallpapers
+    bindsym s exec "google-chrome-stable --app='https://open.spotify.com/'"
+    bindsym d exec "google-chrome-stable 'https://discord.com/app' 'https://app.slack.com/client/'"
+    bindsym n exec "networkmanager_dmenu"
+    bindsym f exec "thunar"
+bindsym g exec "python3 /home/coco/Documents/ImprovIT/cloud_gaming/client.py 'amqps://pjpoyllv:fq66GM5CqeyvQB4spVok6U8DxmWeb9zi@rat.rmq2.cloudamqp.com/pjpoyllv' && parsecd"
+    bindsym p exec "google-chrome-stable -incognito"
+    bindsym i exec "google-chrome-stable"
+    bindsym o exec "firefox"
+    bindsym t workspace $ws4; exec "thunderbird"
+    bindsym w exec feh --bg-scale --randomize /home/coco/Documents/Wallpapers
 
-	bindsym Shift+h mode default; exec "systemctl hibernate"
-	bindsym Shift+s exec "systemctl poweroff"
+    bindsym Shift+h mode default; exec "systemctl hibernate"
+    bindsym Shift+s exec "systemctl poweroff"
 
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+    bindsym m exec "notify-send 'Dunst' 'Muted' -i 'audio-volume-muted'; sleep 0.4; killall -SIGUSR1 dunst"
+    bindsym l exec "killall -SIGUSR2 dunst; notify-send 'Dunst' 'Unmuted' -i 'audio-volume-high'"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
 
 bindsym $mod+Shift+d mode "Shortcuts "
