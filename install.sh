@@ -96,3 +96,8 @@ systemctl start ntpd
 # pdf viewer
 sudo pacman -S okular
 xdg-mime default okularApplication_pdf.desktop application/pdf
+
+# Once you have nix
+nix-env -i slrn
+
+# Configure hibernate on low power : /etc/UPower/UPower.conf

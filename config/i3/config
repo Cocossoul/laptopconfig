@@ -39,7 +39,7 @@ gaps inner 15
 gaps outer 1
 
 # Wallpaper
-exec_always feh --bg-scale --randomize ~/Documents/Wallpapers
+exec_always feh --bg-fill --randomize ~/Documents/Wallpapers
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -210,7 +210,7 @@ bindsym g exec "python3 /home/coco/Documents/ImprovIT/cloud_gaming/client.py 'am
     bindsym i exec "google-chrome-stable"
     bindsym o exec "firefox"
     bindsym t workspace $ws4; exec "thunderbird"
-    bindsym w exec feh --bg-scale --randomize /home/coco/Documents/Wallpapers
+    bindsym w exec feh --bg-fill --randomize /home/coco/Documents/Wallpapers
 
     bindsym Shift+h mode default; exec "systemctl hibernate"
     bindsym Shift+s exec "systemctl poweroff"
