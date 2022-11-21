@@ -205,7 +205,7 @@ mode "Shortcuts " {
     bindsym d exec "google-chrome-stable 'https://discord.com/app' 'https://app.slack.com/client/'"
     bindsym n exec "networkmanager_dmenu"
     bindsym f exec "thunar"
-bindsym g exec "python3 /home/coco/Documents/ImprovIT/cloud_gaming/client.py 'amqps://pjpoyllv:fq66GM5CqeyvQB4spVok6U8DxmWeb9zi@rat.rmq2.cloudamqp.com/pjpoyllv' && parsecd"
+bindsym g exec "python3 /home/coco/Documents/ImprovIT/cloud_gaming/client.py 'broker.corentinpape.com' 'laptop' 'coco' 'rE4HCCoTkn#gCs94' && parsecd"
     bindsym p exec "google-chrome-stable -incognito"
     bindsym i exec "google-chrome-stable"
     bindsym o exec "firefox"
